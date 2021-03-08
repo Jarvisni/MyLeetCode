@@ -1,7 +1,7 @@
 在一个 m * n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？  
   
 常规二维dp解法： 
-```
+```C++
 class Solution {
 public:
     int maxValue(vector<vector<int>>& grid) {
@@ -18,7 +18,7 @@ public:
 };
 ```
 滚动数组应用：
-```
+```C++
 class Solution {
 public:
     int maxValue(vector<vector<int>>& grid) {
@@ -38,7 +38,7 @@ public:
   
 如果改成，在棋盘上寻找目标数字，棋盘从左向右递增，从上到下递增，返回是否有这个目标数字：  
 此时关键在于初始点不再应该还从左上开始，而应该从左下或者右上开始，需要满足一个方向上能够有增大另一个方向上有减小  
-```
+```C++
 class Solution {
 public:
     bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
