@@ -22,6 +22,6 @@ for (int i = 0; i < n; i++)
     // 得到 nums 的最大子数组
     int res = Integer.MIN_VALUE;//这里由于有负数以该设置为负无穷->在C++中  正无穷：如果是int，可以用INT_MAX表示正无穷，INT_MIN表示负无穷，需要包含limits.h头文件  0x7fffffff赋值给maxInt,0x80000000赋值给minInt
     for (int i = 0; i < n; i++) {
-        res = Math.max(res, dp[i]);
+        res = max(res, dp[i]);
     }
 ```
