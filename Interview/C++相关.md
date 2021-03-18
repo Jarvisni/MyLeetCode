@@ -67,7 +67,11 @@ static变量相比全局变量优势：
 全局变量作用范围整个工程，static变量仅所在文件，减少了命名冲突可能性，可以不同文件中命名相同的static变量。  
 可以实现信息隐藏，静态数据成员可以是private，而全局变量不可以。  
   
-
+  
+8、(const int* p   =  int const * p )   vs    int * const p  
+const int * p ： const右边接近于int这个类型声明，意思是有个指针p，指向的是一个int型的整数常量。即p可变，* p不可变。  
+int* const  p ： const接近于* 这个类型声明，意思是有个指向整数的常指针。即p不可变，* p可变。  
+  
 部分内容来源网络：  
 1、https://www.cnblogs.com/diligenceday/p/5764443.html  
 2、https://www.zhihu.com/question/37608201/answer/72766337    
