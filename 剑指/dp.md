@@ -25,3 +25,65 @@ for (int i = 0; i < n; i++)
         res = max(res, dp[i]);
     }
 ```
+  
+动规代码：  
+```C++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n=nums.size();
+        if(n==0)  return 0;
+        vector<int> dp(n,0);
+        dp[0]=nums[0];
+        for(int i=1;i<n;i++)
+        {
+            dp[i]=max(nums[i],dp[i-1]+nums[i]);
+        }
+        int sum=0x80000000;
+        for(int i=0;i<n;i++)
+        {
+            if(dp[i]>sum)
+                sum=dp[i];
+        }
+        return sum;
+    }
+};
+```
+  
+分治代码：  
+```C++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n=nums.size();
+        return fz(nums,0,n-1);
+    }
+
+    int fz(vector<int>& nums,int l,int r)
+    {
+        if(l==r)  return nums[l];
+        int mid=(l+r)/2;
+        int lnum=fz(nums,l,mid);//最大连续数组在mid左边
+        int rnum=fz(nums,mid+1,r);//最大连续数组在mid右边
+        //最大连续数组在中间并且含有mid本身，此时从mid向左右延伸找到最大
+        //寻找包含中间的向左右最大，则找向左最大，向右最大，相加
+        int maxnuml=0x80000000;
+        int templ=0;
+        for(int i=mid;i>=l;i--)
+        {
+            templ+=nums[i];
+            maxnuml=max(templ,maxnuml);
+        }
+        int maxnumr=0x80000000;
+        int tempr=0;
+        for(int i=mid+1;i<=r;i++)
+        {
+            tempr+=nums[i];
+            maxnumr=max(tempr,maxnumr);
+        }
+        int maxmid=maxnuml+maxnumr;
+        return max(max(lnum,rnum),maxmid);
+    }
+};
+```
+
