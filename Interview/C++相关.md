@@ -1,4 +1,5 @@
 1、new 和 malloc 区别联系  
+见纸上，未更新，不全面  
 malloc与free是c++/c语言的标准函数，new/delete是C++的运算符。  
 都可用于申请动态内存和释放内存。new/delete比malloc/free更加智能，其实底层也是执行的malloc/free。更加的智能体现在new和delete在对象创建的时候自动执行构造函数，对象消亡之前会自动执行析构函数。不把malloc/free淘汰出局呢？因为c++程序经常要调用c函数，而c程序只能用malloc/free管理动态内存。  
 new返回指定类型的指针，并且可以自动计算出所需要的大小。malloc必须用户指定大小，并且默然返回类型为void*,必须强行转换为实际类型的指针。  
